@@ -4,21 +4,17 @@ export type PlayStates = 'next' | 'previous' | 'pause' | 'playPause' | 'play';
 
 export const unloads = new Set<LunaUnload>();
 
-app.whenReady().then(() => {
-    globalShortcut.unregisterAll();
+const actions = [
+    ['MediaNextTrack', 'next'],
+    ['MediaPreviousTrack', 'previous'],
+    ['MediaStop', 'pause'],
+    ['MediaPlayPause', 'playPause'],
+]
 
-    const actions = [
-        ['MediaNextTrack', 'next'],
-        ['MediaPreviousTrack', 'previous'],
-        ['MediaStop', 'pause'],
-        ['MediaPlayPause', 'playPause'],
-    ]
+for (const [accelerator, method] of actions) {
+    globalShortcut.register(accelerator, () => {
+        luna.tidalWindow?.webContents.send('TidalFixer:callMethod', method);
+    });
 
-    for (const [accelerator, method] of actions) {
-        globalShortcut.register(accelerator, () => {
-            luna.tidalWindow?.webContents.send('TidalFixer:callMethod', method);
-        });
-
-        unloads.add(() => globalShortcut.unregister(accelerator))
-    }
-});
+    unloads.add(() => globalShortcut.unregister(accelerator))
+}
