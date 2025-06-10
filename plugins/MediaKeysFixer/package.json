@@ -1,7 +1,7 @@
 {
 	"name": "mediakeysfixer",
 	"description": "Fixes tidal media keys randomly unbinding",
-	"homepage": "https://github.com/Aztup/tidal-plugins#MediaKeysFixer",
+	"homepage": "https://github.com/Aztup/luna-plugins#MediaKeysFixer",
 	"author": {
 		"name": "Aztup",
 		"url": "https://github.com/Aztup",
