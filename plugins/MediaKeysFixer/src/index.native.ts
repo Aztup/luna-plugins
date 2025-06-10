@@ -1,4 +1,4 @@
-import {globalShortcut, app} from 'electron';
+import {globalShortcut} from 'electron';
 import type { LunaUnload } from '@luna/core';
 export type PlayStates = 'next' | 'previous' | 'pause' | 'playPause' | 'play';
 
