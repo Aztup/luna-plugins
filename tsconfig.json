@@ -1,3 +1,21 @@
 {
-	"extends": "luna/tsconfig.json"
+	"compilerOptions": {
+		"target": "ESNext",
+		"module": "Preserve",
+		"moduleResolution": "bundler",
+		"jsx": "react",
+		"noEmit": true,
+		"strict": true,
+		"forceConsistentCasingInFileNames": true,
+		"lib": ["DOM", "DOM.Iterable", "ESNext"],
+		"types": ["node", "luna"],
+		"baseUrl": ".",
+		"paths": {
+			"@luna/lib": ["./luna/plugins/lib/src/index.ts"],
+			"@luna/lib.native": ["./luna/plugins/lib.native/src/index.native.ts"],
+			"@luna/core": ["./luna/render/src/index.ts"],
+			"@luna/ui": ["./luna/plugins/ui/src/index.tsx"],
+			"@luna/dev": ["./luna/plugins/dev/src/index.ts"]
+		}
+	}
 }
